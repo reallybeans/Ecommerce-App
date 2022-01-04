@@ -48,7 +48,7 @@ export const popularProducts = [
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    img: "https://images.pexels.com/photos/5586415/pexels-photo-5586415.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   },
   {
     id: 3,

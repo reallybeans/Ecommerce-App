@@ -32,7 +32,7 @@ const Button = styled.button`
   padding: 10px;
   background-color: white;
   color: gray;
-  cursor: pointe r;
+  cursor: pointer;
 `;
 export const CategoryItem = ({ item }) => {
   return (
