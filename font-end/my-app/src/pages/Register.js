@@ -7,7 +7,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url(${(props) => props.imgUrl}) center;
+    url("https://images.pexels.com/photos/8774510/pexels-photo-8774510.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500") center;
   background-size: cover;
   width: 100%;
   height: 100vh;

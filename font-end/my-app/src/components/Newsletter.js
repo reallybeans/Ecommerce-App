@@ -28,6 +28,7 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   border: 1px solid black;
+  margin-bottom: 20px;
   ${mobile({ width: "80%" })}
 `;
 const Input = styled.input`

@@ -4,8 +4,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
-import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneOutlined from "@mui/icons-material/PhoneOutlined";
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
 import { mobile } from './../responsive';
