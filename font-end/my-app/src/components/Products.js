@@ -29,14 +29,15 @@ export const Products = ({ cat, filter, sort }) => {
   }, [cat]);
 
   useEffect(() => {
-
-    setFilteredProducts(
-      products.filter((item) =>
-        Object.entries(filter).every(([key, value]) => {
-          return item[key].includes(value);
-        })
-      )
-    );
+    if (filter !== undefined) {
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filter).every(([key, value]) => {
+            return item[key].includes(value);
+          })
+        )
+      );
+    }
   }, [products, cat, filter]);
 
   useEffect(() => {

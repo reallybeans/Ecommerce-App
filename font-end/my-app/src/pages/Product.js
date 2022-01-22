@@ -10,6 +10,7 @@ import { mobile } from "./../responsive";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { publicRequest } from "../requestMethod";
+import { addProduct } from "../redux/cartRedux";
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
@@ -126,9 +127,10 @@ export const Product = () => {
       setQuantity(quantity + 1);
     }
   };
-  // const handleClick = () => {
-  //   dispatch(addProduct({ ...product, quantity, color, size }));
-  // };
+  const handleClick = () => {
+    //update cart
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
   return (
     <Container>
       <Navbar />
@@ -174,12 +176,12 @@ export const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <RemoveOutlinedIcon />
-              <Amount>1</Amount>
-              <AddOutlinedIcon />
+              <RemoveOutlinedIcon onClick={() => handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <AddOutlinedIcon onClick={() => handleQuantity("inc")} />
             </AmountContainer>
 
-            <Button>ADD TO CARD</Button>
+            <Button onClick={handleClick}>ADD TO CARD</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
