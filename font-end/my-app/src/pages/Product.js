@@ -116,10 +116,11 @@ export const Product = () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
-      } catch (error) {}
+      } catch {}
     };
     getProduct();
   }, [id]);
+
   const handleQuantity = (type) => {
     if (type === "dec") {
       quantity > 1 && setQuantity(quantity - 1);
@@ -127,9 +128,11 @@ export const Product = () => {
       setQuantity(quantity + 1);
     }
   };
+
   const handleClick = () => {
-    //update cart
-    dispatch(addProduct({ ...product, quantity, color, size }));
+    dispatch(
+      addProduct({ ...product, quantity, color, size })
+    );
   };
   return (
     <Container>
@@ -181,7 +184,7 @@ export const Product = () => {
               <AddOutlinedIcon onClick={() => handleQuantity("inc")} />
             </AmountContainer>
 
-            <Button onClick={handleClick}>ADD TO CARD</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
