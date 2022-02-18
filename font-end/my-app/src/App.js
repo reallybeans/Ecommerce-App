@@ -11,13 +11,15 @@ import { Product } from "./pages/Product";
 import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { Admin } from "./pages/Admin";
 
 const App = () => {
   const user = true;
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        {/* <Route exact path="/" element={<Home />} /> */}
+        <Route exact path="/" element={<Admin />} />
 
         <Route path="/products/:category" element={<ProductList />} />
         
