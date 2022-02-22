@@ -1,11 +1,12 @@
 import AddOutlined from "@mui/icons-material/AddOutlined";
 import RemoveOutlined from "@mui/icons-material/RemoveOutlined";
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Announcement } from "../components/Announcement";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "./../components/Footer";
-import { mobile } from './../responsive';
+import { mobile } from "./../responsive";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -33,7 +34,8 @@ const TopButton = styled.button`
 `;
 
 const TopTexts = styled.div`
-${mobile({ display: "none" })};`;
+  ${mobile({ display: "none" })};
+`;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -85,7 +87,7 @@ const PriceDetail = styled.div`
 const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 `;
 const ProductAmount = styled.div`
   font-size: 24px;
@@ -128,7 +130,10 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
 `;
+const total = 0;
 export const Cart = () => {
+  const cart = useSelector((state) => state.cart.products);
+  console.log(cart);
   return (
     <Container>
       <Navbar />
@@ -141,58 +146,67 @@ export const Cart = () => {
             <TopText>Shopping bags (2)</TopText>
             <TopText>Your</TopText>
           </TopTexts>
-          <TopButton >CHECKOUT NOW</TopButton>
+          <TopButton>CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-                <Details>
-                  <ProductName>
-                    <b>Product</b>JESSIE THUNDER SWEATER
-                  </ProductName>
-                  <ProductId>
-                    <b>ID:</b>67547837465
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <AddOutlined />
-                  <ProductAmount>2</ProductAmount>
-                  <RemoveOutlined />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
+            {cart.map((product) => (
+              <Product>
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product</b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b>
+                      {product._id}
+                    </ProductId>
+                    <ProductColor color={product.color} />
+                    <ProductSize>
+                      <b>Size:</b> {product.size}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <AddOutlined />
+                    <ProductAmount>2</ProductAmount>
+                    <RemoveOutlined />
+                  </ProductAmountContainer>
+                  <ProductPrice>$ {product.price}</ProductPrice>
+                </PriceDetail>
+              </Product>
+            ))}
+
             <Hr />
           </Info>
           <Summary>
             <SumaryTitle>ORDER SUMARY</SumaryTitle>
-            <SumaryItem>
-              <SumaryItemText>JESSIE THUNDER SWEATER</SumaryItemText>
-              <SumaryItemPrice>$ 30</SumaryItemPrice>
-            </SumaryItem>
+            {cart.map((product) => (
+              <SumaryItem>
+                <SumaryItemText>JESSIE THUNDER SWEATER</SumaryItemText>
+                <SumaryItemPrice>$ {product.price}</SumaryItemPrice>
+              </SumaryItem>
+            ))}
+
             <SumaryItem>
               <SumaryItemText>Subtotal</SumaryItemText>
-              <SumaryItemPrice>$ 30</SumaryItemPrice>
+              <SumaryItemPrice>$ 0</SumaryItemPrice>
             </SumaryItem>
             <SumaryItem>
               <SumaryItemText>Estimated Shipping</SumaryItemText>
-              <SumaryItemPrice>$ 5.90</SumaryItemPrice>
+              <SumaryItemPrice>$ 0</SumaryItemPrice>
             </SumaryItem>
             <SumaryItem>
               <SumaryItemText>Shipping Discount</SumaryItemText>
-              <SumaryItemPrice>$ -5.90</SumaryItemPrice>
+              <SumaryItemPrice>$ 0</SumaryItemPrice>
             </SumaryItem>
             <SumaryItem>
-              <SumaryItemText type="total"></SumaryItemText>
-              <SumaryItemPrice></SumaryItemPrice>
+              <SumaryItemText type="total">Total</SumaryItemText>
+              {cart.map((product) => (
+                <SumaryItemPrice>{total + product.price}</SumaryItemPrice>
+              ))}
             </SumaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>

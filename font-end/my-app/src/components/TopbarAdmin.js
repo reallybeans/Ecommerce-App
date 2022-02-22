@@ -8,13 +8,13 @@ const Wrapper = styled.div`
   padding: 0px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 const TopBar = styled.div`
   width: 100%;
   height: 50px;
   background: white;
-  //pick topbar alway the top
+  //pick topBar alway the top
   position: sticky;
   top: 0;
   z-index: 999;
@@ -41,9 +41,11 @@ const IconContainer = styled.div`
   }
 `;
 const IconBadge = styled.span`
+  width: 15px;
+  height: 15px;
   position: absolute;
   top: -5px;
-  right: 5px;
+  right: 0px;
   background: red;
   color: white;
   border-radius: 50%;
@@ -58,7 +60,7 @@ const TopAvatar = styled.img`
   border-radius: 50%;
   cursor: pointer;
 `;
-export const TopbarAdmin = () => {
+export const TopBarAdmin = () => {
   return (
     <TopBar>
       <Wrapper>
@@ -78,7 +80,7 @@ export const TopbarAdmin = () => {
             <SettingsIcon />
             <IconBadge>3</IconBadge>
           </IconContainer>
-          <TopAvatar src="https://scontent.fvca1-2.fna.fbcdn.net/v/t39.30808-6/265244797_1587234394966515_7377361581010283800_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ejJL2CJJCgcAX9Nr4IM&_nc_ht=scontent.fvca1-2.fna&oh=00_AT8EFS5Iz2QqxbilgT_iBPRnwScbV5adH2v6XloLTpHJCA&oe=61FC6D4C" />
+          <TopAvatar src="https://scontent.fsgn5-8.fna.fbcdn.net/v/t1.6435-9/120856595_1272457719777519_4534389576795430282_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=gYlqYQEe7PcAX8bj3ak&_nc_oc=AQn67nBXRC1fftLkWdrNqOtnhePJgozd8sllHY0O5axREGVtXYynZWmf7Y-oGjEHrYU&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT-37Hy-JVh5of3_Z4VVXR1H1A0SGaROE0LcOv_UJ-51fw&oe=62330098" />
         </TopRight>
       </Wrapper>
     </TopBar>
