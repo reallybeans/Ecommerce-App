@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { HomeAdmin } from "../components/admin/HomeAdmin";
 import { SidebarAdmin } from "../components/SidebarAdmin";
 import { TopBarAdmin } from "./../components/TopBarAdmin";
+import { Route, Routes } from "react-router-dom";
+import { UserList } from "./../components/admin/UserList";
+import { User } from "../components/admin/User";
 
 const Container = styled.div``;
 const Body = styled.div`
@@ -19,7 +22,11 @@ export const Admin = () => {
       <Body>
         <SidebarAdmin />
         <MainPage>
-          <HomeAdmin />
+          <Routes>
+            <Route exact path="/" element={<HomeAdmin />} />
+            <Route path="/users" element={<UserList />} />
+            <Route path="users/user/:userId" element={<User />} />
+          </Routes>
         </MainPage>
       </Body>
     </Container>
