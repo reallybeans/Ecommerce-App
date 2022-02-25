@@ -11,6 +11,7 @@ import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import ReportGmailerrorredOutlinedIcon from "@mui/icons-material/ReportGmailerrorredOutlined";
+import { Link } from "react-router-dom";
 const Container = styled.div`
   flex: 1;
   height: calc(100vh - 50px);
@@ -32,6 +33,10 @@ const Title = styled.h3`
 const SideBarList = styled.ul`
   list-style: none;
   padding: 5px;
+  #link {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 const Item = styled.li`
   padding: 5px;
@@ -77,18 +82,22 @@ export const SidebarAdmin = () => {
         <Menu>
           <Title>Quick Menu</Title>
           <SideBarList>
-            <Item>
-              <Icon>
-                <PermIdentityIcon />
-              </Icon>
-              Users
-            </Item>
-            <Item>
-              <Icon>
-                <StorefrontIcon />
-              </Icon>
-              Products
-            </Item>
+            <Link to="users" id="link">
+              <Item>
+                <Icon>
+                  <PermIdentityIcon />
+                </Icon>
+                Users
+              </Item>
+            </Link>
+            <Link to="admin/products" id="link">
+              <Item>
+                <Icon>
+                  <StorefrontIcon />
+                </Icon>
+                Products
+              </Item>
+            </Link>
             <Item>
               <Icon>
                 <AttachMoneyIcon />

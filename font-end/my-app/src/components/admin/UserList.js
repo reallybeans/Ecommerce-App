@@ -84,6 +84,7 @@ export const UserList = () => {
                 <EditOutlinedIcon />
               </IconEdit>
             </Link>
+
             <IconDelete>
               <DeleteOutlineOutlinedIcon
                 onClick={() => handleDelete(params.row.id)}

@@ -6,6 +6,7 @@ import PhoneOutlined from "@mui/icons-material/PhoneOutlined";
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PublishIcon from "@mui/icons-material/Publish";
+import { Link, Navigate } from "react-router-dom";
 const Container = styled.div`
   flex: 4;
   padding: 20px;
@@ -135,11 +136,18 @@ const Upload = styled.div`
   align-items: center;
 `;
 export const User = () => {
+  const location = {
+    pathname: "/admin/addUser",
+    state: { fromDashboard: true },
+  };
   return (
     <Container>
       <TitleContainer>
         <PageTitle>Edit User</PageTitle>
-        <AddButton>Create</AddButton>
+
+        <Link to={location}>
+          <AddButton>Create</AddButton>
+        </Link>
       </TitleContainer>
       <UserContainer>
         <UserDetail>
@@ -158,7 +166,7 @@ export const User = () => {
             <Info>
               <Icon>
                 <PermIdentity />
-              </Icon>{" "}
+              </Icon>
               <UserInfo>IronBig</UserInfo>
             </Info>
             <Info>
@@ -171,19 +179,19 @@ export const User = () => {
             <Info>
               <Icon>
                 <PhoneOutlined />
-              </Icon>{" "}
+              </Icon>
               <UserInfo>0944747911</UserInfo>
             </Info>
             <Info>
               <Icon>
                 <EmailOutlined />
-              </Icon>{" "}
+              </Icon>
               <UserInfo>IronBig</UserInfo>
             </Info>
             <Info>
               <Icon>
                 <LocationOnOutlinedIcon />
-              </Icon>{" "}
+              </Icon>
               <UserInfo>HCM | VietNam</UserInfo>
             </Info>
           </Bottom>
