@@ -6,7 +6,7 @@ import PhoneOutlined from "@mui/icons-material/PhoneOutlined";
 import EmailOutlined from "@mui/icons-material/EmailOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PublishIcon from "@mui/icons-material/Publish";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Container = styled.div`
   flex: 4;
   padding: 20px;
@@ -137,7 +137,7 @@ const Upload = styled.div`
 `;
 export const User = () => {
   const location = {
-    pathname: "/admin/addUser",
+    pathname: "/admin/add-user",
     state: { fromDashboard: true },
   };
   return (

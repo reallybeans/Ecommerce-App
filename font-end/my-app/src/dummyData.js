@@ -48,6 +48,21 @@ export const data = [
     "Active User": 5200,
   },
 ];
+export const productData = [
+  {
+    name: "Jan",
+    "Sales": 4000,
+  },
+  {
+    name: "Feb",
+    "Sales": 3000,
+  },
+  {
+    name: "Mar",
+    "Sales": 3500,
+  },
+
+];
 
 export const userRows = [
   {
@@ -122,5 +137,77 @@ export const userRows = [
     email: "bean@gmail.com",
     status: "active",
     transaction: "$189.00",
+  },
+];
+export const productRows = [
+  {
+    id: 1,
+    name: "Apple an",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    status: "active",
+    stock: 123,
+    price: "$189.00",
+  },
+
+  {
+    id: 2,
+    name: "Apple n",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+
+    status: "active",
+    stock: 123,
+    price: "$123.00",
+  },
+  {
+    id: 3,
+    name: "Apple a",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+
+    status: "active",
+    stock: 123,
+    price: "$119.00",
+  },
+  {
+    id: 4,
+    name: "Apple an",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+
+    status: "active",
+    stock: 123,
+    price: "$189.00",
+  },
+  {
+    id: 5,
+    name: "Apple oc",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+
+    status: "inactive",
+    stock: 123,
+    price: "$129.00",
+  },
+  {
+    id: 6,
+    name: "Apple n",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+
+    status: "active",
+    stock: 123,
+    price: "$189.00",
+  },
+  {
+    id: 10,
+    name: "Apple S",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    status: "active",
+    stock: 123,
+    price: "$189.00",
+  },
+  {
+    id: 11,
+    name: "Apple VD",
+    img: "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YWlycG9kcyUyMHByb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    status: "active",
+    stock: 123,
+    price: "$189.00",
   },
 ];
