@@ -1,13 +1,16 @@
 import AddOutlined from "@mui/icons-material/AddOutlined";
 import RemoveOutlined from "@mui/icons-material/RemoveOutlined";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Announcement } from "../components/Announcement";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "./../components/Footer";
 import { mobile } from "./../responsive";
+import StripeCheckout from "react-stripe-checkout";
 
+const KEY = process.env.REACT_APP_STRIPE;
+console.log(process.env.REACT_APP_STRIPE);
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -130,10 +133,14 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
 `;
-const total = 0;
 export const Cart = () => {
-  const cart = useSelector((state) => state.cart.products);
-  console.log(cart);
+  const carts = useSelector((state) => state.cart);
+  const cart = carts.products;
+  const [striperToken, setStriperToken] = useState(null);
+  const ontoken = (token) => {
+    setStriperToken(token);
+  };
+  console.log(striperToken);
   return (
     <Container>
       <Navbar />
@@ -143,7 +150,7 @@ export const Cart = () => {
         <Top>
           <TopButton type="filled">CONTINUES SHOPPING</TopButton>
           <TopTexts>
-            <TopText>Shopping bags (2)</TopText>
+            <TopText>Shopping bags ({carts.quantity})</TopText>
             <TopText>Your</TopText>
           </TopTexts>
           <TopButton>CHECKOUT NOW</TopButton>
@@ -171,7 +178,7 @@ export const Cart = () => {
                 <PriceDetail>
                   <ProductAmountContainer>
                     <AddOutlined />
-                    <ProductAmount>2</ProductAmount>
+                    <ProductAmount>{product.quantity}</ProductAmount>
                     <RemoveOutlined />
                   </ProductAmountContainer>
                   <ProductPrice>$ {product.price}</ProductPrice>
@@ -185,7 +192,7 @@ export const Cart = () => {
             <SumaryTitle>ORDER SUMARY</SumaryTitle>
             {cart.map((product) => (
               <SumaryItem>
-                <SumaryItemText>JESSIE THUNDER SWEATER</SumaryItemText>
+                <SumaryItemText>{product.title}</SumaryItemText>
                 <SumaryItemPrice>$ {product.price}</SumaryItemPrice>
               </SumaryItem>
             ))}
@@ -204,11 +211,23 @@ export const Cart = () => {
             </SumaryItem>
             <SumaryItem>
               <SumaryItemText type="total">Total</SumaryItemText>
-              {cart.map((product) => (
+              {/* {cart.map((product) => (
                 <SumaryItemPrice>{total + product.price}</SumaryItemPrice>
-              ))}
+              ))} */}
+              <SumaryItemPrice>$ {carts.total}</SumaryItemPrice>
             </SumaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <StripeCheckout
+              name="Bean Shop"
+              image="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/273641884_1620371604986127_7737084780392416906_n.jpg?stp=dst-jpg_s960x960&_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=PrCTHKG-cykAX-lFBRh&_nc_oc=AQlWJ97CAT0dMktkheeXcvck0Qn5aGYKm2jeFoto30qZkeCcagPOcDRtJT52WKar6w4&_nc_ht=scontent.fhan4-3.fna&oh=00_AT_o_tiGHQjqFbl50dwltY_yqJe69wjybxe4GyhbfGSJdA&oe=62313F14"
+              billingAddress
+              shippingAddress
+              description={`Your total is ${cart.total}`}
+              amount={cart.total * 100}
+              token={ontoken}
+              stripeKey={KEY}
+            >
+              <Button>CHECKOUT NOW</Button>
+            </StripeCheckout>
           </Summary>
         </Bottom>
       </Wrapper>
